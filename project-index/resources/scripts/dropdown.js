@@ -6,13 +6,7 @@ const getPost = async () => {
   const data = await response.json();
   return data;
 };
-
-const displayOption = async () => {
-  const options = await getPost();
-  for (option of options) {
-    const newOption = document.createElement("option");
-    newOption.value = option.username;
-    newOption.text = option.name;
-    batchTrack.appendChild(newOption);
-  }
-};
+let dropdownElementList = [].slice.call(document.querySelectorAll('.storage'))
+let dropdownList = dropdownElementList.map(function (element) {
+  return new bootstrap.Dropdown(element)
+})
