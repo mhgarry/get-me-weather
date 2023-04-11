@@ -1,21 +1,28 @@
-//our parameter we're going to connect to our search bar to search our city
-const city = document.getElementById("search-bar").val()
-//the base URL for the API call we're making
-const baseUrl = "http://api.openweathermap.org/data/2.5/forecast?q="
-//our api key to access openweather's api
-const apiKey = "appid=7286c108f57e704d69f96e3657c2f0f0"
-$.get(`${baseUrl}${apiKey}` + city, function(input)
-		$('')
-//our api call
-function getWeather (city){
+//create a function to get the weather data for a city using the openweatherapi. this function should
+//take city name and make a get request to the API
+$(document).ready(function() {
 
-}
-$.ajax({
-	url: `${baseUrl}${apiKey}${city}`,
-	type: 'GET',
-	dataType: 'json',
-	success: function(res) {
-		console.log(res);
-		alert(res);
-	}
-	});
+  // Function to get weather data from OpenWeather API
+  function getWeather(city) {
+    var apiKey = "b8b599eeeca773c6410a67d2f92e3e5a";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial&units=metric";
+
+    $.ajax({
+      url: apiUrl,
+      method: "GET",
+      dataType: "json",
+      success: function(data) {
+        // Call functions to display weather data
+        displayCurrentWeather(data);
+        displayForecast(data);
+
+				// Store weather data in local storage
+      localStorage.setItem("weatherData", JSON.stringify(data));
+
+
+      },
+      error: function() {
+        alert("Error: City not found");
+      }
+    });
+  }});

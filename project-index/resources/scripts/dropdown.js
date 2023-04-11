@@ -8,5 +8,5 @@ const getPost = async () => {
 };
 let dropdownElementList = [].slice.call(document.querySelectorAll('.storage'))
 let dropdownList = dropdownElementList.map(function (element) {
-  return new bootstrap.Dropdown(element)
+  return new join.Dropdown(element)
 })
