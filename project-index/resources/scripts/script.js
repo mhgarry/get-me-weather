@@ -43,7 +43,18 @@ $(document).ready(function() {
 
   // Function to display weather forecast data
   function displayForecast(data) {
+		//for loop through days
+			for (var i = 0;i < 5; i++){
+				var forecast = {
+					date: todayMoment.clone(data).add(i +1, 'days'),
+					icon: "http://openweathermap.org/img/wn/" + data.list[i + 1].weather[0].icon + "@2x.png",
+					temp: data.list[i + 1].main.temp,
+					humidity: data.list[i + 1].main.humidity,
+					wind: data.list[i + 1].wind.speed
 
+				}
+
+			}
   }
 
   // Event listener for search button
@@ -53,11 +64,6 @@ $(document).ready(function() {
     getWeather(city);
   });
 
-  // Event listener for search history dropdown
-  $(".storage").on("click", ".dropdown-item", function(event) {
-    event.preventDefault();
-    var city = $(this).text();
-    getWeather(city);
-  });
+
 
 });
