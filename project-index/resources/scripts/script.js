@@ -45,15 +45,25 @@ $(document).ready(function() {
   function displayForecast(data) {
 		//for loop through days
 			for (var i = 0;i < 5; i++){
+				//add all our forecast data +i for +1 index
 				var forecast = {
 					date: todayMoment.clone(data).add(i +1, 'days'),
 					icon: "http://openweathermap.org/img/wn/" + data.list[i + 1].weather[0].icon + "@2x.png",
 					temp: data.list[i + 1].main.temp,
 					humidity: data.list[i + 1].main.humidity,
 					wind: data.list[i + 1].wind.speed
-
-				}
-
+					};
+					//add content to our cards
+					var cardsForecast = "#forecast-" + i;
+					$(cardsForecast)[0].textContent = forecast.date;
+					cardsForecast = "#icon-" + i;
+					$(cardsForecast)[0].src = forecast.icon;
+					cardsForecast = "temp-" + i;
+					$(cardsForecast)[0].textContent = forecast.temp;
+					cardsForecast = "humidity-" + i;
+					$(cardsForecast)[0].textContent = forecast.humidity;
+					cardsForecast = "wind-" + i;
+					$(cardsForecast)[0].textContent = forecast.wind;
 			}
   }
 
@@ -64,6 +74,11 @@ $(document).ready(function() {
     getWeather(city);
   });
 
-
+  // Event listener for search history dropdown
+  $(".storage").on("click", ".dropdown-item", function(event) {
+    event.preventDefault();
+    var city = $(this).text();
+    getWeather(city);
+  });
 
 });
