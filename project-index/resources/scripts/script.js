@@ -1,5 +1,6 @@
 //create a function to get the weather data for a city using the openweatherapi. this function should
-//take city name and make a get request to the API
+//take cityname and make a get request to the API
+
 $(document).ready(function() {
 
   // Function to get weather data from OpenWeather API
@@ -16,7 +17,7 @@ $(document).ready(function() {
         displayCurrentWeather(data);
         displayForecast(data);
 
-				// Store weather data in local storage
+				// Store data in local storage
       localStorage.setItem("weatherData", JSON.stringify(data));
 
 
@@ -25,4 +26,17 @@ $(document).ready(function() {
         alert("Error: City not found");
       }
     });
-  }});
+  }
+
+
+
+  // Event listener for search button
+  $("#submit").on("click", function(event) {
+    event.preventDefault();
+    var city = $("#search-bar").val().trim();
+    getWeather(city);
+  });
+
+
+
+});
