@@ -44,28 +44,16 @@ $(document).ready(function() {
   // Function to display weather forecast data
   function displayForecast(data) {
 		//for loop through days
-			for (var i = 0;i < 5; i++){
+			const foreCastObj = [{
+				icon: "http://openweathermap.org/img/wn" + data.list[0].weather[0].icon,
+				temp: data.list[0].main.temp + " Fahrenheit",
+				humidity: data.list[0].main.humidity,
+				wind: data.list[0].wind.speed
+			}]
+				 foreCastObj = querySelectorAll('.forecast')
 				//add all our forecast data +i for +1 index
-				var forecast = {
-					date: todayMoment.clone(data).add(i +1, 'days'),
-					icon: "http://openweathermap.org/img/wn/" + data.list[i + 1].weather[0].icon + "@2x.png",
-					temp: data.list[i + 1].main.temp,
-					humidity: data.list[i + 1].main.humidity,
-					wind: data.list[i + 1].wind.speed
-					};
-					//add content to our cards
-					var cardsForecast = "#forecast-" + i;
-					$(cardsForecast)[0].textContent = forecast.date;
-					cardsForecast = "#icon-" + i;
-					$(cardsForecast)[0].src = forecast.icon;
-					cardsForecast = "temp-" + i;
-					$(cardsForecast)[0].textContent = forecast.temp;
-					cardsForecast = "humidity-" + i;
-					$(cardsForecast)[0].textContent = forecast.humidity;
-					cardsForecast = "wind-" + i;
-					$(cardsForecast)[0].textContent = forecast.wind;
-			}
-  }
+
+	}});
 
   // Event listener for search button
   $("#submit").on("click", function(event) {
@@ -80,5 +68,3 @@ $(document).ready(function() {
     var city = $(this).text();
     getWeather(city);
   });
-
-});
