@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MyWeather</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+					integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+					crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+				integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/styles/styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=News+Cycle&family=Varela+Round&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/dayjs.min.js" integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA=="
+					crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="container-fluid bg-opacity-50 bg-primary bg-gradient">
+
+
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-info text-light shadow-lg bg-opacity-75">
+		<div class="container-fluid">
+			<a href="#" class="navbar-brand">MyWeather</a>
+					<div class="mb-3">
+						<label for="City" class="form-label city-">City: </label>
+					<select class="form-select city-options" aria-label="Default select example">
+						<option selected>Open this select menu</option>
+					</select>
+		</div>
+	</nav>
+
+	<div class="container-fluid bg-opacity-50">
+		<div class="p-3 my-4 bg-opacity-75 bg-info text-white rounded-3">
+			<h1>Backpacker's Global Weather Assistant</h1>
+			<div class="text-center">
+				<img class="opacity-25" src="./assets/images/weather.svg"></img>
+			</div>
+			<p class="lead offset-md-7">The savvy travelers first stop for global weather information</p>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h4 class=" text-white text-opacity-50 offset-md-2 p-3 mb-3">Time to hike on? Don't forget to search the weather</h4>
+				<div class="container">
+					<div class="row height d-flex justify-content-center align-items-center">
+						<div class="col">
+							<div class="form mb-5 min-vw-80">
+								<i class="fa fa-search" id="form"></i>
+								<input type="search-bar" id="search-bar" class="form-control form-input" placeholder="Search any city...">
+								<span class="left-pan"><i class="fa fa-microphone"></i></span>
+								<button class="btn-outline-secondary text-white bg-primary col-12 rounded-2" id="submit">Search</button>
+								</input>
+								<div class="container-fluid" id="weather-data"></div>
+								<div class="row"></div>
+								<h2 id="city-name" class="col-auto text-primary"></h2>
+								<img class="rounded-1" src="" id="icon">
+							</div>
+							<div class="current-weather-data row-cols-3">
+								<p class="current-weather-data col-auto" id="temp"></p>
+								<p class="current-weather-data col-auto" id="humidity"></p>
+								<p class="current-weather-data col-auto" id="wind"></p>
+							</div>
+						</div>
+
+						<section class="bg-info bg-opacity-50  shadow-lg">
+							<div class="container">
+								<div class="row pt-5">
+									<div class="col-12">
+										<h3 class="text-white text-opacity-50 mb-5">5 day forecast</h3>
+									</div>
+								</div>
+
+								<div class="row justify-content-evenly">
+									<div id="forecast-1 icon-1 temp-1 humidity-1 wind-1 date-1" class="forecast col-lg-2 mb-3 d-flex align-items-stretch">
+										<div class="card">
+											<div class="card-body d-flex flex-column">
+											</div>
+										</div>
+									</div>
+
+									<div id="forecast-2 icon-2 temp-2 humidity-2 wind-2 date-2" class="forecast col-lg-2 mb-3 d-flex align-items-strech">
+										<div class="card">
+											<div class="card-body d-flex flex-column">
+											</div>
+										</div>
+									</div>
+
+									<div id="forecast-3 icon-3 temp-3 humidity-3 wind-3 date-3" class="forecast col-lg-2 mb-3 d-flex align-items-stretch">
+										<div class="card">
+											<div class="card-body d-flex flex-column">
+											</div>
+										</div>
+									</div>
+
+									<div id="forecast-4 icon-4 temp-4 humidity-4  wind-4 date-4" class="forecast col-lg-2 mb-3 d-flex align-items-stretch">
+										<div class="card">
+											<div class="card-body d-flex flex-column">
+											</div>
+										</div>
+									</div>
+
+									<div id="forecast-5 icon-5 temp-5 humidity-5 wind-5 date-5 " class="col-lg-2 mb-3 d-flex align-items-stretch">
+										<div class="card">
+											<div class="card-body d-flex flex-column">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+
+</body>
+
+<script src="./assets/scripts/script.js"></script>
+
+</html>
